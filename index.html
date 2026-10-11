@@ -1,1 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#166534">
+  <title>نظام محاسبة المخبز</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f5f9;
+      color: #1e293b;
+    }
+
+    header {
+      background: #166534;
+      color: white;
+      padding: 24px 18px;
+      border-radius: 0 0 22px 22px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 23px;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    main {
+      padding: 18px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .notice {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fcd34d;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin: 22px 0 12px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      background: white;
+      padding: 17px 13px;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px #00000008;
+      border: 1px solid #e2e8f0;
+    }
+
+    .card .icon {
+      font-size: 27px;
+    }
+
+    .card h3 {
+      margin: 10px 0 7px;
+      font-size: 16px;
+    }
+
+    .card p {
+      margin: 0;
+      color: #64748b;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .status {
+      background: white;
+      padding: 16px;
+      margin-top: 18px;
+      border-radius: 14px;
+      line-height: 1.9;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      color: #64748b;
+      padding: 24px 10px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 340px) {
+      main {
+        padding: 12px;
+      }
+
+      .cards {
+        gap: 8px;
+      }
+
+      .card {
+        padding: 12px 9px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🥖 نظام محاسبة المخبز</h1>
+    <p>الإدارة المالية والمخزون والمبيعات</p>
+  </header>
+
+  <main>
+
+    <div class="notice">
+      هذه نسخة أولية من الواجهة. البيانات المالية لم تُربط بعد
+      بقاعدة بيانات Supabase، لذلك لا تعتمد عليها في اتخاذ قرارات مالية.
+    </div>
+
+    <h2 class="section-title">الإدارة المالية</h2>
+
+    <section class="cards">
+
+      <div class="card">
+        <div class="icon">💰</div>
+        <h3>الصندوق</h3>
+        <p>عرض رصيد النقدية وحركات القبض والصرف.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🛒</div>
+        <h3>المشتريات</h3>
+        <p>فواتير الشراء والمشتريات الآجلة والنقدية.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🧾</div>
+        <h3>المبيعات</h3>
+        <p>تسجيل المبيعات ومردودات المبيعات.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">👥</div>
+        <h3>الموردون</h3>
+        <p>أرصدة الموردين وكشوف حساباتهم وسندات الصرف.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">👤</div>
+        <h3>العملاء</h3>
+        <p>متابعة المبيعات الآجلة والمبالغ المحصلة.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📦</div>
+        <h3>المخزون</h3>
+        <p>الدقيق والسكر والخميرة والمنتجات الجاهزة.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🏭</div>
+        <h3>الإنتاج</h3>
+        <p>تسجيل استهلاك المواد الخام وتكلفة الإنتاج.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>التقارير</h3>
+        <p>ميزان المراجعة والأرباح وكشوف الحسابات.</p>
+      </div>
+
+    </section>
+
+    <h2 class="section-title">حالة النظام</h2>
+
+    <div class="status">
+      <div>✅ واجهة التطبيق: جاهزة مبدئيًا</div>
+      <div>⏳ قاعدة البيانات: لم تُربط بالواجهة بعد</div>
+      <div>⏳ تسجيل الدخول والصلاحيات: لم تُفعّل بعد</div>
+    </div>
+
+  </main>
+
+  <footer>
+    نظام محاسبة المخبز — الإصدار الأولي
+  </footer>
+
+</body>
+</html>
