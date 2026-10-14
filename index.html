@@ -321,6 +321,19 @@ document.getElementById('logout-button').addEventListener('click', async functio
   showLogin();
   loginMessage.textContent = 'تم تسجيل الخروج بنجاح.';
 });
+async function loadSuppliers() {
+  const { data, error } = await supabaseClient
+    .from('suppliers')
+    .select('id, code, name')
+    .order('name');
+
+  if (error) {
+    console.error('خطأ تحميل الموردين:', error.message);
+    return;
+  }
+
+  console.log('الموردون المسجلون:', data);
+}
 </script>
 
 </body>
