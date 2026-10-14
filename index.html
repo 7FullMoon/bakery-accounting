@@ -316,7 +316,11 @@ loginForm.addEventListener('submit', async function (event) {
 });
 
 checkSession();
-
+document.getElementById('logout-button').addEventListener('click', async function () {
+  await supabaseClient.auth.signOut();
+  showLogin();
+  loginMessage.textContent = 'تم تسجيل الخروج بنجاح.';
+});
 </script>
 
 </body>
