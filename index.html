@@ -201,6 +201,17 @@
     نظام محاسبة المخبز — الإصدار الأولي
   </footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const SUPABASE_URL = 'https://wypvggliynjnnvrbzeve.supabase.co';
+  const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_FOFvxNmsH8-hDkBoCHS3VA_UkXaLb_U';
+
+  const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+  );
+
+  console.log('تم تجهيز اتصال Supabase');
+</script>
 
 </body>
 </html>
