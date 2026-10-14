@@ -120,7 +120,35 @@
 </head>
 
 <body>
+<div id="login-screen" style="display:none; max-width:400px; margin:40px auto; padding:24px; background:white; border-radius:16px; box-shadow:0 2px 12px #ccc; text-align:center;">
+  <h2>تسجيل الدخول</h2>
+  <p>نظام محاسبة المخبز</p>
 
+  <form id="login-form">
+    <input
+      id="login-email"
+      type="email"
+      placeholder="البريد الإلكتروني"
+      required
+      style="width:100%; padding:12px; margin:8px 0; box-sizing:border-box;"
+    >
+
+    <input
+      id="login-password"
+      type="password"
+      placeholder="كلمة المرور"
+      required
+      style="width:100%; padding:12px; margin:8px 0; box-sizing:border-box;"
+    >
+
+    <button
+      type="submit"
+      style="width:100%; padding:12px; margin-top:12px; background:#166534; color:white; border:0; border-radius:8px;"
+    >دخول</button>
+  </form>
+
+  <p id="login-message" style="color:#b91c1c;"></p>
+</div>
   <header>
     <h1>🥖 نظام محاسبة المخبز</h1>
     <p>الإدارة المالية والمخزون والمبيعات</p>
