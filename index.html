@@ -221,6 +221,15 @@
       </div>
 
     </section>
+<h2 class="section-title">الموردون المسجلون</h2>
+
+<div class="status">
+  <p id="suppliers-loading">جارٍ تحميل الموردين...</p>
+
+  <div id="suppliers-list"></div>
+
+  <p id="suppliers-error" style="color:#b91c1c;"></p>
+</div>
 
     <h2 class="section-title">حالة النظام</h2>
 
@@ -288,6 +297,7 @@ async function checkSession() {
   }
 
   showApp();
+  await loadSuppliers();
 }
 
 loginForm.addEventListener('submit', async function (event) {
@@ -322,17 +332,39 @@ document.getElementById('logout-button').addEventListener('click', async functio
   loginMessage.textContent = 'تم تسجيل الخروج بنجاح.';
 });
 async function loadSuppliers() {
+  const loading = document.getElementById('suppliers-loading');
+  const list = document.getElementById('suppliers-list');
+  const errorMessage = document.getElementById('suppliers-error');
+
+  loading.textContent = 'جارٍ تحميل الموردين...';
+  list.replaceChildren();
+  errorMessage.textContent = '';
+
   const { data, error } = await supabaseClient
     .from('suppliers')
     .select('id, code, name')
     .order('name');
 
   if (error) {
-    console.error('خطأ تحميل الموردين:', error.message);
+    loading.textContent = '';
+    errorMessage.textContent = 'تعذر تحميل الموردين: ' + error.message;
     return;
   }
 
-  console.log('الموردون المسجلون:', data);
+  loading.textContent = data.length
+    ? 'عدد الموردين: ' + data.length
+    : 'لا يوجد موردون مسجلون.';
+
+  data.forEach(function (supplier) {
+    const item = document.createElement('div');
+
+    item.style.padding = '12px';
+    item.style.borderBottom = '1px solid #e2e8f0';
+    item.textContent =
+      supplier.code + ' — ' + supplier.name;
+
+    list.appendChild(item);
+  });
 }
 </script>
 
